@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <script>FontAwesomeConfig = { searchPseudoElements: true };</script>
+  </head>
+<body>
+
+  <%# #/nav %>
+<div class="l-wrapper">
+  <div class="menu-main">
+  <br>
+    <% if user_signed_in? %>
+      <%= link_to  user_path(current_user.id) do %>
+        <h6>マイページ</h6>
+      <% end %>
+    <% elsif artist_signed_in? %>
+      <%= link_to  artist_path(current_artist.id) do %>
+        <h6>マイページ</h6>
+      <% end %>
+    <% else %>
+
+    <% end %>
+
+     <%= link_to  events_path do %>
+       <h6>ライブ検索</h6>
+     <% end %>
+      <%= link_to  artists_path do %>
+        <h6>バンド検索</h6>
+      <% end %>
+      <br>
+      <h6 style="color:#dadada;">____________________</h6>
+      <br>
+      <% if current_user == nil and current_artist == nil %>
+        <%= link_to  new_artist_session_path do %>
+          <h6>バンドログイン</h6>
+        <% end %>
+        <%= link_to  new_user_session_path do %>
+          <h6>ユーザーログイン</h6>
+        <% end %>
+      <% elsif %>
+        <% if current_artist == nil %>
+          <%= link_to "ログアウト", destroy_user_session_path,:method => :delete %>
+        <% else %>
+            <%= link_to "ログアウト", destroy_artist_session_path,:method => :delete %>
+          <% end %>
+      <% end %>
+      </div>
+  </div>
+</body>

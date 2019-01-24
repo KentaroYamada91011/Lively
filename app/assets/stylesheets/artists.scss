@@ -1,0 +1,40 @@
+// Place all the styles related to the artists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+input#search{
+  // margin: 0;
+  // border-radius: 3px;
+  // box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0,0,0,.75);
+  // display: none;
+  // display: block;
+  // font-family: inherit;
+  // font-size: .875rem;
+  // padding: .5rem;
+  width: 100%;
+  // box-sizing: border-box;
+  // transition: border-color .15s linear,background .15s linear;
+}
+input#date{
+  // margin: 0;
+  // border-radius: 3px;
+  // box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0,0,0,.75);
+  // display: block;
+  // font-family: inherit;
+  // font-size: .875rem;
+  // padding: .5rem;
+  width: 30%;
+  // box-sizing: border-box;
+  // transition: border-color .15s linear,background .15s linear;
+}
+input.search{
+  display: none;
+
+}

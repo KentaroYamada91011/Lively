@@ -1,0 +1,33 @@
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0);
+}
+td.day.wday-0.past.current-month{
+  color: red;
+}
+td.day.wday-0.future.current-month{
+  color: red;
+}
+
+td.day.wday-6.past.current-month{
+  color: blue;
+
+}
+td.day.wday-6.future.current-month{
+  color: blue;
+
+}
+.simple-calendar .today {
+    background: aliceblue;
+    font-weight: bold;
+}
+#month{
+  font-weight:bold;
+  color:gray;
+}
+
+td{
+  color:gray;
+}
+th{
+  color:gray;
+}

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: one
+  start_time: 2018-11-27 21:48:07
+  end_time: 2018-11-27 21:48:07
+  address: MyString
+  price: 1
+  memo: MyString
+  image: MyString
+
+two:
+  artist: two
+  start_time: 2018-11-27 21:48:07
+  end_time: 2018-11-27 21:48:07
+  address: MyString
+  price: 1
+  memo: MyString
+  image: MyString

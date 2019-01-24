@@ -1,0 +1,57 @@
+
+  <body>
+    <header class="drawer-navbar " role="banner">
+      <div class="drawer-container">
+        <div class="drawer-navbar-header">
+          <%= link_to root_path do %>
+            <font size="40px">Lively.</font>
+          <% end %>
+          <button type="button" class="drawer-toggle drawer-hamburger">
+            <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+          </button>
+        </div>
+        <nav class="drawer-nav" role="navigation">
+          <ul class="drawer-menu drawer-menu--right">
+            <div class="menu-main">
+            <% if user_signed_in? %>
+              <%= link_to  user_path(current_user.id) do %>
+                <h6>マイページ</h6>
+              <% end %>
+            <% elsif artist_signed_in? %>
+              <%= link_to  artist_path(current_artist.id) do %>
+                <h6>マイページ</h6>
+              <% end %>
+            <% else %>
+
+            <% end %>
+
+             <%= link_to  events_path do %>
+               <h6>ライブ検索</h6>
+             <% end %>
+              <%= link_to  artists_path do %>
+                <h6>バンド検索</h6>
+              <% end %>
+              <br>
+              <h6 style="color:#dadada;">____________________</h6>
+              <br>
+              <% if current_user == nil and current_artist == nil %>
+                <%= link_to  new_artist_session_path do %>
+                  <h6>バンドログイン</h6>
+                <% end %>
+                <%= link_to  new_user_session_path do %>
+                  <h6>ユーザーログイン</h6>
+                <% end %>
+              <% elsif %>
+                <% if current_artist == nil %>
+                  <%= link_to "ログアウト", destroy_user_session_path,:method => :delete %>
+                <% else %>
+                    <%= link_to "ログアウト", destroy_artist_session_path,:method => :delete %>
+                  <% end %>
+              <% end %>
+              </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>

@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+　 　<script>FontAwesomeConfig = { searchPseudoElements: true };</script>
+  </head>
+  <body>
+    <div class="l-wrapper">
+      <main class="l-main">
+        <div id="content" class="p-top">
+
+          <div class="c-section p-top__article">
+            <h4 style="text-align: center;">バンド名から探す</h4>
+            <%= form_tag({controller:"artists",action:"index"},{ :method => :get}) do %>
+              <%= text_field_tag :search, nil %>
+              <%= submit_tag ('検索'),:class => "search",:name => nil %>
+            <% end %>
+            <div class="c-section__inner">
+              <div class="c-article__container">
+                <% @artists.each do |a| %>
+                <%= link_to  artist_path(a.id), target: "_blank" do %>
+                <div class="c-article">
+                  <article class="c-article__item">
+                    <figure class="c-article__item-image">
+                      <%= image_tag a.image.to_s ,:width => "100%" ,:id => "image-tag-artist",:onerror => "this.src='/assets/no_image.jpg'"  %>
+                    </figure>
+                    <div class="c-article__item-body">
+                      <!-- <div class="c-article__item-body-date-box">
+                        <p class="c-article__item-body-date"></p>
+                        <p class="c-article__item-body-week">
+                        <p class="c-article__item-body-open"></p>
+                      </div> -->
+                      <div class="c-article__item-body-title-box">
+                        <h1 class="c-article__item-body-title"><%= a.name %></h1>
+                        <p class="c-article__item-body-lineup"></p>
+                        <p class="c-article__item-body-lineup"><%= a.memo%></p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- #/l-wrapper -->
+<!--
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <h3 style="align-text:center;">バンドから探す</h3>
+    <%= form_tag({controller:"artists",action:"index"},{ :method => :get}) do %>
+      <%= text_field_tag :search, nil %>
+      <%= submit_tag ('検索'),:name => nil %>
+    <% end %>
+  </div>
+    <div class="container-fluid">
+      <div class="row">
+        <% @artists.each do |a| %>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <div class="card" >
+            <div class="card-image">
+              <%= link_to  artist_path(a.id), target: "_blank" do %>
+                <%= image_tag a.image.to_s ,:width => "100%" ,:id => "image-tag-artist" %>
+              <% end %>
+            </div>
+            <div class="card-body" style="text-align: center;">
+              <h5 class="card-title"><%= link_to a.name, artist_path(a.id) %></h5>
+              <p class="card-text"><%= a.memo%></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- <nav>
+      <ul class="menu-buttom">
+        <li>
+         <%= link_to  events_path, class: "footer" do %>
+           <i class="fas fa-plus-circle"></i>
+           <h6>ライブ検索</h6>
+         <% end %>
+        </li>
+        <li>
+          <%= link_to  artists_path, class: "footer" do %>
+            <i class="fas fa-search"></i>
+            <h6>バンド検索</h6>
+          <% end %>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to  user_path(current_user.id), class: "footer" do %>
+              <i class="fas fa-user"></i>
+              <h6>マイページ</h6>
+            <% end %>
+          <% elsif artist_signed_in? %>
+            <%= link_to  artist_path(current_artist.id), class: "footer" do %>
+              <i class="fas fa-user"></i>
+              <h6>マイページ</h6>
+            <% end %>
+          <% else %>
+
+          <% end %>
+        </li>
+      </ul>
+    </nav> -->
+  </body>
+</html>

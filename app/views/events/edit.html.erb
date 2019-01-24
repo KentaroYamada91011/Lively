@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+
+    <%= form_for(@event, :url => { controller:'events', action:'update'})do |f| %>
+     <div class="field" >
+       <%= f.label :"イベント名" %>
+       <br>
+       <%= f.text_field :name ,size: 140 %>
+
+        <br>
+        <%# ライブ名    %>
+        <%= f.label :"場所" %>
+        <br>
+        <%= f.text_field :address ,size: 140 %>
+        <br>
+        <%# price    %>
+        <%= f.label :"日付" %>
+        <br>
+        <%= f.date_field :start_time ,size: 140 %>
+        <br>
+        <%= f.label :"OPEN" %>
+        <br>
+        <%= f.text_field :open_time ,size: 140 %>
+        <br>
+        <%= f.label :"START" %>
+        <br>
+        <%= f.text_field :start_time_ ,size: 140 %>
+        <br>
+        <%= f.label :ADV %>
+        <br>
+        <%= f.text_field :price ,size: 140 %>
+
+        <%= f.check_box :adv_drink ,size: 140 %><%= f.label :"+1 drink" %>
+        <br>
+        <%= f.label :"DOOR" %>
+        <br>
+        <%= f.text_field :door_price ,size: 140 %>
+
+        <%= f.check_box :door_drink ,size: 140 %><%= f.label :"+1 drink" %>
+        <br>
+        <%= f.label :"メモ" %>
+        <br>
+        <%= f.text_field :memo ,size: 140 %>
+        <br>
+        <%= f.label :image %>
+        <br>
+        <%= f.file_field :image %>
+      </div>
+     <div class="action">
+       <%= f.submit %>
+ </div>
+<% end %>
+<%= link_to  event_path(@event), :method => "delete", data:{:confirm => '本当に削除しますか？' } do %>
+  <i class="fas fa-trash-alt"></i>この投稿を削除する
+<% end %>
+</body>
+</html>

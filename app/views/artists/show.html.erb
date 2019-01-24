@@ -1,0 +1,81 @@
+<head>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+　 　<script>FontAwesomeConfig = { searchPseudoElements: true };</script>
+</head>
+<body>
+  <header>
+    <% if @artist.image.to_s == nil %>
+      <img src="images/no_image.jpg" alt=" " class="aligncenter">
+    <% else %>
+      <%= image_tag @artist.image.to_s, :id => "profile",:onerror => "this.src='/assets/no_image.jpg'"%>
+    <% end %>
+    <div id='user_name'><%= @artist.name %></div>
+
+
+    <% if user_signed_in? %>
+      <% if current_user.follows.exists?(artist_id: @artist) %>
+        <%= link_to artist_follow_path(artist_id: @artist),method: :delete do %>
+          <p class="c-article__item-body-week" id="following">フォロー中</p>
+        <% end %>
+      <% else %>
+      　<%= link_to artist_follows_path(artist_id: @artist),method: :post do %>
+          <p class="c-article__item-body-week" id="follow">フォローする</p>
+        <% end %>
+      <% end %>
+      <%= @follows_count %>
+    <% else %>
+    <% end %>
+    <% if artist_signed_in? %>
+      <%= link_to new_event_path do %>
+        <p class="c-article__item-body-week" id="follow">新しいイベントを投稿する</p>
+        <div id="change_name"><%= link_to edit_artist_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
+      <% end %>
+      <% else %>
+    <% end %>
+  </header>
+
+
+
+<% @event = Event.where(artist_id: @artist) %>
+  <div class="card border-light" style="background-color: #ffffff; border-color: #333;"">
+  <%= month_calendar events: @event.each do |date,events| %>
+    <%= date.day %>
+
+    <% events.each do |e| %>
+     <div>
+      <%= link_to e.name,event_path(e) %>
+     </div>
+   <% end %>
+ <% end %>
+ </div>
+ <!-- <nav>
+   <ul class="menu-buttom">
+     <li>
+      <%= link_to  events_path, class: "footer" do %>
+        <i class="fas fa-plus-circle"></i>
+        <h6>ライブ検索</h6>
+      <% end %>
+     </li>
+     <li>
+       <%= link_to  artists_path, class: "footer" do %>
+         <i class="fas fa-search"></i>
+         <h6>バンド検索</h6>
+       <% end %>
+     </li>
+     <li>
+       <% if user_signed_in? %>
+         <%= link_to  user_path(current_user.id), class: "footer" do %>
+           <i class="fas fa-user"></i>
+           <h6>マイページ</h6>
+         <% end %>
+       <% elsif artist_signed_in? %>
+         <%= link_to  artist_path(current_artist.id), class: "footer" do %>
+           <i class="fas fa-user"></i>
+           <h6>マイページ</h6>
+         <% end %>
+       <% else %>
+
+       <% end %>
+     </li>
+   </ul>
+ </nav> -->

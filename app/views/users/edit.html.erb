@@ -1,0 +1,24 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+<%= form_for @user do |f| %>
+ <div class="field">
+
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name ,size: 140 %>
+    <br>
+    <%= f.label :image %>
+    <br>
+    <%= f.file_field :image ,size: 140 %>
+
+
+ </div>
+ <div class="action">
+   <%= f.submit %>
+ </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+
+<%= link_to "Back", :back %>

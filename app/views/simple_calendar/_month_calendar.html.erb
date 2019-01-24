@@ -1,0 +1,59 @@
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <%= link_to t('simple_calendar.previous', default: fa_icon("backward 2x")), calendar.url_for_previous_view %>
+    <% case t('date.month_names')[start_date.month]  %>
+    <% when 'January' %>
+      <% j = "１月" %>
+    <% when 'February' %>
+      <% j = "２月" %>
+    <% when 'March' %>
+      <% j = "３月" %>
+    <% when 'April' %>
+      <% j = "４月" %>
+    <% when 'May' %>
+      <% j = "５月" %>
+    <% when 'June' %>
+      <% j = "６月" %>
+    <% when 'July' %>
+      <% j = "７月" %>
+    <% when 'August' %>
+      <% j = "８月" %>
+    <% when 'September' %>
+      <% j = "９月" %>
+    <% when 'October' %>
+      <% j = "１０月" %>
+    <% when 'November	' %>
+      <% j = "１１月" %>
+    <% when 'December' %>
+      <% j = "１２月" %>
+    <% end %>
+    <div style="display:-webkit-inline-box;"><span class="calendar-title"><h1 style="color:gray;"><%= start_date.year %></h1><div id="month"><%= j %></div> </span></div>
+    <%= link_to t('simple_calendar.next', default: fa_icon("forward 2x")), calendar.url_for_next_view %>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr style="background-color:#FFF">
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
+              <% else %>
+                <% block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,93 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.0.0/css/font-awesome.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+　　 <script>FontAwesomeConfig = { searchPseudoElements: true };</script>
+
+</head>
+<body>
+
+
+  <main class="l-main is-home">
+    <div id="tribe-events">
+      <div id="content" class="p-detail">
+        <section class="c-section">
+          <div class="c-section__inner">
+            <div class="p-detail__container">
+              <div class="p-detail__body">
+                <div class="p-detail__body-inner  js-matchHeight">
+                  <figure class="p-detail__image">
+                    <%= image_tag @event.image.to_s %>
+                  </figure>
+                  <div class="p-detail__title-box">
+                    <div class="p-detail__date-box is-sp">
+                      <div class="p-detail__date-box-inner">
+                        <p class="p-detail__date"><% if @event.start_time == nil %><% else %><%= @event.start_time.to_date.strftime("%m/%d") %><% end %></p>
+                        <p class="p-detail__week"><% if @event.start_time == nil %>
+                        <% else %>
+                          <%= p %w(日 月 火 水 木 金 土)[@event.start_time.wday] %>
+                        <% end %>
+                        </p>
+                        <p class="p-detail__open"><% if @event.open_time == nil %><% else %>OPEN：<%= @event.open_time.strftime("%H:%M") %><% end %></p>
+                      </div>
+                    </div>
+                    <div class="p-detail__title-box-inner">
+                      <h1 class="p-detail__title-box-inner"><%= @event.name %><% if current_artist == @event.artist %><object><a href="/events/<%= @event.id %>/edit"><i class="fas fa-edit"></i></object><% end %></h1>
+                      <p class="c-article__item-body-lineup"><%= link_to artist_path(@event.artist.id), target: "_blank" do %><%= @event.artist.name %><% end %></p>
+                      <p class="c-article__item-body-lineup"><i class="fas fa-map-marker-alt"></i><%= @event.address %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-detail__lead-box">
+                  <div class="p-detail__lead-box-inner">
+                    <div class="p-detail__text">
+                    </div>
+                  </div>
+                </div>
+                <div class="p-detail__info">
+                  <div class="p-detail__info-inner">
+                    <dl class="p-detail__open-door">
+                      <div>
+                        <dt>OPEN</dt>
+                        <dd><% if @event.open_time == nil %><% else %><%= @event.open_time.strftime("%H:%M") %><% end %></dd>
+                      </div>
+                      <div>
+                        <dt>START</dt>
+                        <dd><% if @event.open_time == nil %><% else %><%= @event.start_time_.strftime("%H:%M") %><% end %></dd>
+                      </div>
+                      <div>
+                        <dt>ADV</dt>
+                        <dd>￥<%= @event.price %><% if @event.adv_drink == 1 %>+1drink<% end %></dd>
+                      </div>
+                      <div>
+                        <dt>DOOR</dt>
+                        <dd>￥<%= @event.door_price %><% if @event.adv_drink == 1 %>+1drink<% end %></dd>
+                      </div>
+                    </dl>
+                    <div class="p-detail__sns u-sp-block">
+                      <ul class="p-detail__sns-list">
+                        <li></li>
+                      </ul>
+                    </div>
+                    <div class="p-detail__lineup">
+                      <dt>MEMO</dt>
+                      <dd>
+                        <div class="p-detail__lineup-inner">
+                          <div class="p-detail__lineup-artist">
+                            <%= @event.memo %>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- #/content -->
+
+</body>

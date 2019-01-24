@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+　　 <script>FontAwesomeConfig = { searchPseudoElements: true };</script>
+  </head>
+  <body>
+
+
+
+
+    <!-- #l-wrapper -->
+    <div class="l-wrapper">
+      <main class="l-main">
+        <div id="content" class="p-top">
+
+          <div class="c-section p-top__article">
+
+
+
+            <h4 style="text-align: center;">日程からイベントを検索</h4>
+            <%= form_tag({controller:"events",action:"index"},{ :method => :get}) do %>
+              <%= date_field_tag :date, nil %>
+              <%= submit_tag 'Search',:class => "search",:name => nil %>
+            <% end %>
+            <div class="c-section__inner">
+              <div class="c-article__container">
+                <% @event.each do |t|  %>
+                <%= link_to  event_path(t), target: "_blank" do %>
+                <div class="c-article">
+                  <article class="c-article__item">
+                    <figure class="c-article__item-image">
+                      <%= image_tag t.image.to_s,:class => "event__figure",:onerror => "this.src='/assets/no_image.jpg'" %>
+                    </figure>
+                    <div class="c-article__item-body">
+                      <div class="c-article__item-body-date-box">
+                        <p class="c-article__item-body-date"><% if t.start_time == nil %><% else %><%= t.start_time.to_date.strftime("%m/%d") %><% end %></p>
+                        <p class="c-article__item-body-week">
+                          <% if t.start_time == nil %>
+                          <% else %>
+                            <%= p %w(日 月 火 水 木 金 土)[t.start_time.wday] %></p>
+                          <% end %>
+                        <p class="c-article__item-body-open"><% if t.open_time == nil %><% else %>OPEN:<%= t.open_time.strftime("%H：%M") %><% end %></p>
+                      </div>
+                      <div class="c-article__item-body-title-box">
+                        <h1 class="c-article__item-body-title"><%= t.name %></h1>
+                        <p class="c-article__item-body-lineup"><%= t.artist.name %></p>
+                        <p class="c-article__item-body-lineup"><i class="fas fa-map-marker-alt"></i><%= t.address %></p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- #/l-wrapper -->
+
+
+    </body>
+</html>

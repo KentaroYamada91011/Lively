@@ -1,0 +1,94 @@
+// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+ margin:0;            /* ←追加 */
+}
+
+
+.like-btn {
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  color: #ff2581;
+}
+
+img#live-profile{
+  display: inline-block;
+
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+    position: relative;
+    display: inline-block;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+nav{
+  background: #fff;
+  border-top: 1px solid #eee;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  z-index: 3;
+}
+
+li {
+    display: list-item;
+    list-style: none;
+    text-align: -webkit-match-parent;
+    float: left;
+    width: calc(100% / 3);
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    list-style: none;
+}
+a.footer{
+  display: block;
+  height: 60px;
+  font-size: 11px;
+  text-align: center;
+  background: #ffffff;
+  color: #262626;
+  text-decoration: none;
+}
+a{
+  height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #262626;
+  text-decoration: none;
+
+
+}
+
+.card-body{
+  width:100%;
+
+}
+.event-artist-image{
+
+}
+
+.event-summary{
+
+
+}
