@@ -74,6 +74,4 @@ gem "font-awesome-rails"
 gem 'twitter'
 gem 'oauth'
 gem 'omniauth-twitter'
-group :production do
-  gem 'pg'
-end
+gem 'pg'
