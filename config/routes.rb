@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   root :to => 'events#home'
   get "events/terms_of_service"=> "events#terms_of_service"
   get "events/privacy_policy"=> "events#privacy_policy"
-  get "users/login"=> "users#login"
-  get "artsits/login"=> "artsits#login"
   # get 'artist/:id' => 'artists#show'
   # delete 'events/:id' => 'events#destroy'
   # get 'events/:id/edit' => 'events#edit'

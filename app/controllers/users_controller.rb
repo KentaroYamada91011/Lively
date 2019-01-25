@@ -22,8 +22,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  def login
-  end
 
 private
   def user_params
