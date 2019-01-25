@@ -23,7 +23,7 @@
             <h4 style="text-align: center;">日程からイベントを検索</h4>
             <%= form_tag({controller:"events",action:"index"},{ :method => :get}) do %>
               <%= date_field_tag :date, nil %>
-              <%= submit_tag 'Search',:class => "search",:name => nil %>
+              <%= submit_tag 'Search',:name => nil %>
             <% end %>
             <div class="c-section__inner">
               <div class="c-article__container">

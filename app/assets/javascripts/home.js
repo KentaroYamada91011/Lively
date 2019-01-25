@@ -1,59 +1,41 @@
-let img;
+
+let beginX = 20.0; // Initial x-coordinate
+let beginY = 10.0; // Initial y-coordinate
+let endX = 570.0; // Final x-coordinate
+let endY = 320.0; // Final y-coordinate
+let distX; // X-axis distance to move
+let distY; // Y-axis distance to move
+let exponent = 4; // Determines the curve
+let x = 0.0; // Current x-coordinate
+let y = 0.0; // Current y-coordinate
+let step = 0.01; // Size of each step along the path
+let pct = 0.0; // Percentage traveled (0.0 to 1.0)
+
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
-  img = loadImage('assets/lively.jpg');
+  createCanvas(720, 400);
+  noStroke();
+  distX = endX - beginX;
+  distY = endY - beginY;
 }
 
 function draw() {
-  background("#FFFFFF");
+  fill(0, 2);
+  rect(0, 0, width, height);
+  pct += step;
+  if (pct < 1.0) {
+    x = beginX + pct * distX;
+    y = beginY + pow(pct, exponent) * distY;
+  }
+  fill(255);
+  ellipse(x, y, 20, 20);
+}
 
-  let locX = mouseX - height / 2;
-  let locY = mouseY - width / 2;
-
-  ambientLight(60, 60, 60);
-  pointLight(255, 255, 255, locX, locY, 100);
-
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  texture(img);
-  box(80);
-  pop();
-
-  push();
-  translate(-width / 4, -height / 4, 0);
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  fill(250, 0, 0);
-  torus(80, 20, 64, 64);
-  pop();
-
-  push();
-  translate(width / 4, -height / 4, 0);
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  normalMaterial();
-  torus(80, 20, 64, 64);
-  pop();
-
-  push();
-  translate(-width / 4, height / 4, 0);
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  ambientMaterial(250);
-  torus(80, 20, 64, 64);
-  pop();
-
-  push();
-  translate(width / 4, height / 4, 0);
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  specularMaterial(250);
-  torus(80, 20, 64, 64);
-  pop();
+function mousePressed() {
+  pct = 0.0;
+  beginX = x;
+  beginY = y;
+  endX = mouseX;
+  endY = mouseY;
+  distX = endX - beginX;
+  distY = endY - beginY;
 }
