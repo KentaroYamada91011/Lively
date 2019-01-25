@@ -28,6 +28,8 @@ class ArtistsController < ApplicationController
       render 'edit'
     end
   end
+  def login
+  end
 
 private
   def artist_params
