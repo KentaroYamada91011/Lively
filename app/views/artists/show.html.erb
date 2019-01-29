@@ -9,7 +9,7 @@
     <% else %>
       <%= image_tag @artist.image.to_s, :id => "profile",:onerror => "this.src='/assets/no_image.jpg'"%>
     <% end %>
-    <div id='user_name'><%= @artist.name %></div>
+    <div id='user_name', style="font-size:medium;"><%= @artist.name %></div>
 
 
     <% if user_signed_in? %>

@@ -7,8 +7,8 @@
 <body>
   <header>
     <%= image_tag @user.image.to_s, :id => 'profile' %>
-    <div id='user_name'><%= current_user.name %></div>
-    <div id="change_name"><%= link_to edit_artist_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
+    <div id='user_name', style="font-size:medium;"><%= current_user.name %></div>
+    <div id="change_name", style="font-size:medium;"><%= link_to edit_artist_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
     <div class="l-gnav-toggle">
     </div>
   </header>
