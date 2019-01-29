@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
          devise :database_authenticatable, :registerable,
-              :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+              :recoverable, :rememberable, :trackable, :validatable
 
     validates :name, presence: true
     validates :start_time, presence: true

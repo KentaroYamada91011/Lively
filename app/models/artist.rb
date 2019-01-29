@@ -4,8 +4,7 @@ class Artist < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :registerable,
-       :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  has_many :events
+       :recoverable, :rememberable, :trackable, :validatable
   has_many :follows
   validates :name, presence: true
   mount_uploader :image, ImageUploader
