@@ -287,4 +287,6 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # ends
+  config.omniauth :facebook, 'App ID', 'App Secret'
+  config.omniauth :twitter, 'API key', 'API secret'
 end

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # get 'likes/destroy'
   devise_for :artists
-  devise_for :users
-  
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :users
   resources :artists do
     resources :follows ,only:[:create, :destroy]
