@@ -3,6 +3,11 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  if Rails.env.production?
+    config.omniauth :twitter, '09fSS4dmazC2gGQnhJUjf9wx5', 'NdtCiQFGpzUTkZ86l9qQxvTFHSgG0kaKYEWhOJ66qBolLeGsr0'
+  else
+    config.omniauth :twitter, '09fSS4dmazC2gGQnhJUjf9wx5', 'NdtCiQFGpzUTkZ86l9qQxvTFHSgG0kaKYEWhOJ66qBolLeGsr0'
+  end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -287,6 +292,6 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # ends
-  config.omniauth :facebook, 'App ID', 'App Secret'
-  config.omniauth :twitter, 'API key', 'API secret'
+
+
 end
