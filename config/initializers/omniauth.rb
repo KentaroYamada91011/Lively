@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
     provider :twitter,
-    ENV["09fSS4dmazC2gGQnhJUjf9wx5"],
-    ENV["NdtCiQFGpzUTkZ86l9qQxvTFHSgG0kaKYEWhOJ66qBolLeGsr0"]
+    ENV["CmZmFuOYFs5yETkInsR6yaAU8"],
+    ENV["Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG"]
 end

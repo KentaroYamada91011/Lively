@@ -261,9 +261,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   if Rails.env.production?
-    config.omniauth :twitter, '09fSS4dmazC2gGQnhJUjf9wx5', 'NdtCiQFGpzUTkZ86l9qQxvTFHSgG0kaKYEWhOJ66qBolLeGsr0'
+    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
   else
-    config.omniauth :twitter, '09fSS4dmazC2gGQnhJUjf9wx5', 'NdtCiQFGpzUTkZ86l9qQxvTFHSgG0kaKYEWhOJ66qBolLeGsr0'
+    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
