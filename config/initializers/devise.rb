@@ -260,11 +260,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  if Rails.env.production?
-    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], :display => 'popup'
-  else
-    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], :display => 'popup'
-  end
+  # if Rails.env.production?
+    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
+  # else
+    # config.omniauth :twitter, ENV["CmZmFuOYFs5yETkInsR6yaAU8"], ENV["Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG"], :display => 'popup'
+  # end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
