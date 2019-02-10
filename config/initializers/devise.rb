@@ -261,9 +261,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   if Rails.env.production?
-    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
+    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], :display => 'popup'
   else
-    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
+    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], :display => 'popup'
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
