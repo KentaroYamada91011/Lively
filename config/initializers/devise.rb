@@ -261,7 +261,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # if Rails.env.production?
-    config.omniauth :twitter, 'CmZmFuOYFs5yETkInsR6yaAU8', 'Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG'
+    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET:"]
   # else
     # config.omniauth :twitter, ENV["CmZmFuOYFs5yETkInsR6yaAU8"], ENV["Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG"], :display => 'popup'
   # end
