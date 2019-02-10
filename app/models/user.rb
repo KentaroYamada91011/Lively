@@ -7,7 +7,7 @@ class User < ApplicationRecord
             :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates :name, presence: true
-  validates :start_time, presence: true
+  
   has_many :likes, dependent: :destroy
   has_many :follows, dependent: :destroy
 

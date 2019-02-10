@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :likes, dependent: :destroy
   mount_uploader :image, ImageUploader
   validates :name, presence: true
+  validates :start_time, presence: true
   #
   # def like_user(user_id)
   #   #すでにいいねしているかどうか確認する。
