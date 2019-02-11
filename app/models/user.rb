@@ -25,7 +25,9 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20]
       )
     end
-
+    ######これを追記！######
+    user.skip_confirmation!
+    #######################
     user
   end
 
