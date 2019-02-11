@@ -50,7 +50,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to controller: 'sessions', action: 'new'
+      redirect_to root_url
     end
   end
 end
