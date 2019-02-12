@@ -91,13 +91,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  Rails.application.config.middleware.use OmniAuth::Builder do
-    configure do |config|
-      config.full_host = "https://lively-project.herokuapp.com/"
-    end
-
-    #ここにOmniAuthの設定
-  end
-
 end
