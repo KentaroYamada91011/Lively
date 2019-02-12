@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :registerable,
-            :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+            :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter]
 
   # validates :name, presence: true
 

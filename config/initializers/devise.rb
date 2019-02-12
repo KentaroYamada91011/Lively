@@ -3,14 +3,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '77183614cac740370d38008d54babe1bdadf105b5d65d663e7c03e27f9d5fb58772b23e3e96a0fa32ea780eae01756e122869086a07932fec16ec4d70c7b488a'
+  # config.secret_key = '85e406ca76b99f826ac778111c5909bfe71c4fcfc1e73673ccf64eb34047d8647255b0404c2e4f4dde0ccf16d92dd5f8647c962d3f290b234b391ee109b88c92'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -116,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'cc8343aa2e68170ab392fa9028f4cb229c7796366f65ebb86fc0fadf805e38edd81744847bf12a45b175bdb733ede35a40ee88c78ccdfa06b3e6a77b9953b492'
+  # config.pepper = '8de0d84d47bcee57604e225b120aa7b8969d447337fd656c9cca5421afb1dfcbcb3ba4a7614910d179185ca20c44aedd9e62d2a041e8bd59cb35c5ddfef8cc2e'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -231,7 +229,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = true
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -260,11 +258,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  # if Rails.env.production?
-    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET:"],  callback_url: "https://lively-project.herokuapp.com/users/auth/twitter/callback"
-  # else
-    # config.omniauth :twitter, ENV["CmZmFuOYFs5yETkInsR6yaAU8"], ENV["Ayp116LsfbYH9nM4dwHQjmWfUWfM59IjVlkiHWaoVzssBM7JQG"], :display => 'popup'
-  # end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -287,13 +280,12 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"]
 
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
-  # ends
-
-
+  # end
 end
