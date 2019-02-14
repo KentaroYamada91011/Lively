@@ -38,7 +38,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     @notice = "failure"
-    redirect_to root_path
+    redirect_to events_path, notice: 'failure'
   end
 
 
@@ -58,7 +58,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       @notice = "user is not persisted."
-      redirect_to root_path
+      redirect_to root_path, notice: 'user is not persisted.'
     end
   end
 
