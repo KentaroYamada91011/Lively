@@ -54,9 +54,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def after_sign_in_path_for(resource)
-    redirect_to events_path
-  end
+  
 
   # def twitter
   #   callback_for(:twitter)
