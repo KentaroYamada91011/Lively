@@ -51,7 +51,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      # format.html { redirect_to root_path, notice: "user is not persisted."}
+      notice = "user is not persisted."
       redirect_to root_path
     end
   end
