@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords',
   }
-  get "/auth/twitter/callback" => "authentications#create"
+  get "/auth/twitter/callback" => "omniauth_callbacks#create"
 
   resources :users
   resources :artists do
