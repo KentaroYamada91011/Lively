@@ -2,8 +2,18 @@ Rails.application.routes.draw do
 
 
   # get 'likes/destroy'
-  devise_for :artists
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :artists, controllers: {
+    registrations: 'artists/registrations',
+    sessions: 'artists/sessions',
+    passwords: 'artists/passwords'
+  }
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   resources :users
   resources :artists do
