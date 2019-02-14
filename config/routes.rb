@@ -14,9 +14,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords',
   }
-  devise_scope :user do
-    get '/auth/twitter/callback', to: 'users#twitter'
-  end
+  get "/auth/twitter/callback" => "authentications#create"
 
   resources :users
   resources :artists do
