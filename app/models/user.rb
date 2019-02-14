@@ -28,7 +28,7 @@ class User < ApplicationRecord
     ######これを追記！######
     user.skip_confirmation!
     #######################
-    user
+    return user
   end
 
   private
