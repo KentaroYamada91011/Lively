@@ -15,8 +15,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
   }
   devise_scope :user do
-    get "/auth/:action/callback", :controller => "authentications",
-                                :constraints => { :action => /twitter|google/ }
+    get '/auth/twitter/callback', to: 'users#twitter'
   end
 
   resources :users
