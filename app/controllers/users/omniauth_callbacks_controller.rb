@@ -28,29 +28,51 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
   # 追加
-  def facebook
-    callback_from :facebook
-  end
-
+  # def facebook
+  #   callback_from :facebook
+  # end
+  #
+  # def twitter
+  #   callback_from :twitter
+  # end
+  #
+  # private
+  #
+  # def callback_from(provider)
+  #   provider = provider.to_s
+  #
+  #   @user = User.find_for_oauth(request.env['omniauth.auth'])
+  #
+  #   if @user.persisted?
+  #     print("persisted true")
+  #     flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+  #     sign_in_and_redirect @user, event: :authentication
+  #   else
+  #     print("persisted false")
+  #     session["devise.#{provider}_data"] = request.env['omniauth.auth']
+  #     redirect_to root_url
+  #   end
+  # end
   def twitter
-    callback_from :twitter
+    callback_for(:twitter)
   end
 
-  private
 
-  def callback_from(provider)
-    provider = provider.to_s
-
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
-
+  # common callback method
+  def callback_for(provider)
+    @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
-      print("persisted true")
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+      sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      print("persisted false")
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to root_url
+      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      redirect_to new_user_registration_url
     end
   end
+
+  def failure
+    redirect_to root_path
+  end
+
+
 end
