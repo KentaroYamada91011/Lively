@@ -53,7 +53,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       print("persisted true")
       @notice = "persisted true"
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+      sign_in_and_redirect @user
     else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
