@@ -53,13 +53,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       print("persisted true")
       @notice = "persisted true"
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user
+      sign_in_and_redirect @user, event: :authentication
     else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       @notice = "user is not persisted."
       redirect_to root_path, notice: 'user is not persisted.'
     end
+  end
+
+  def after_sign_in_path_for(resource)
+    redirect_to events_path
   end
 
 

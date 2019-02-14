@@ -31,6 +31,14 @@ class User < ApplicationRecord
     return user
   end
 
+  def sign_in_and_redirect(resource_or_scope, *args)
+    options  = args.extract_options!
+    scope    = Devise::Mapping.find_scope!(resource_or_scope)
+    resource = args.last || resource_or_scope
+    sign_in(scope, resource, options)
+    redirect_to after_sign_in_path_for(resource)
+  end
+
   private
 
   def self.dummy_email(auth)
