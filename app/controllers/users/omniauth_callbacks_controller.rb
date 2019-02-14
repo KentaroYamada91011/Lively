@@ -43,11 +43,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = User.find_for_oauth(request.env['omniauth.auth'])
 
-    if @user.persisted? // ツイッターサインイン済み
+    if @user.persisted?
       print("persisted true")
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       sign_in_and_redirect @user, event: :authentication
-    else // 未サインイン→サインアップしろ
+    else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       # format.html { redirect_to root_path, notice: "user is not persisted."}
