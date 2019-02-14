@@ -69,7 +69,6 @@ class EventsController < ApplicationController
   end
 
   def home
-
   end
   def privacy_policy
   end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  root :to => 'events#home'
+  
   # get 'likes/destroy'
   devise_for :artists, controllers: {
     registrations: 'artists/registrations',
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
     collection {get "menu"}
     resources :likes ,only:[:create, :destroy]
   end
-  root :to => 'events#home'
   get "events/terms_of_service"=> "events#terms_of_service"
   get "events/privacy_policy"=> "events#privacy_policy"
   # get 'artist/:id' => 'artists#show'

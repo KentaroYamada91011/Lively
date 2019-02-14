@@ -50,10 +50,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       print("persisted false")
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to root_url
+      format.html { redirect_to root_path, notice: "user is not persisted."}
     end
   end
-  
+
   # def twitter
   #   callback_for(:twitter)
   # end
