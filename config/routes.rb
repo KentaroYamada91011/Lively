@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root :to => 'events#home'
-  
+
   # get 'likes/destroy'
   devise_for :artists, controllers: {
     registrations: 'artists/registrations',
@@ -13,8 +13,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  devise_scope :user do
+    get "/auth/:action/callback", :controller => "authentications",
+                                :constraints => { :action => /twitter|google/ }
+  end
 
   resources :users
   resources :artists do
