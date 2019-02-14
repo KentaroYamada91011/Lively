@@ -36,6 +36,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :twitter
   end
 
+  def failure
+    notice = "failure"
+    redirect_to root_path
+  end
+
+
   private
 
   def callback_from(provider)
@@ -75,10 +81,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #     end
   #   end
   #
-    def failure
-      notice = "failure"
-      redirect_to root_path
-    end
 
 
 end
