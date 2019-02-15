@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     sessions: 'artists/sessions',
     passwords: 'artists/passwords'
   }
-  get '/auth/twitter_another' => "authentication#create"
+  get '/auth/twitter_another' => "authentication#twitter"
   get '/auth/twitter_another/callback' => 'anothers#twitter'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
