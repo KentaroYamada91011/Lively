@@ -1,4 +1,4 @@
-class Omniauth2CallbacksController < ApplicationController
+class AnothersController < ApplicationController
   def twitter
     callback_from :twitter
   end

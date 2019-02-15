@@ -6,42 +6,8 @@ class Artist < ApplicationRecord
   devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable
   has_many :follows
-  validates :name, presence: true
+  # validates :name, presence: true
   mount_uploader :image, ImageUploader
-  def self.find_for_oauth2(auth)
-    artsit = Artist.where(uid: auth.uid, provider: auth.provider).first
 
-    unless artsit
-      artsit = Artist.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    Artist.dummy_email(auth),
-        password: Devise.friendly_token[0, 20],
-        name:     auth.info.nickname,
-        image:    auth.info.image
-      )
-    end
-    return artsit
-  end
-
-  def sign_in_and_redirect(resource_or_scope, *args)
-    options  = args.extract_options!
-    scope    = Devise::Mapping.find_scope!(resource_or_scope)
-    resource = args.last || resource_or_scope
-    sign_in(scope, resource, options)
-    redirect_to after_sign_in_path_for(resource)
-  end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
-  end
-  # def self.from_omniauth(auth)
-  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |artsit|
-  #     user.email = auth.info.email
-  #     user.password = Devise.friendly_token[0,20]
-  #   end
-  # end
 
 end
