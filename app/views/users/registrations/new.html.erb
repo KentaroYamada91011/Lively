@@ -1,31 +1,31 @@
 <div class="box11">
-<div class="field-text">
-  ユーザーとしてアカウントを作成する
+<div class="field-text", style="font-weight:bold;">
+  ユーザーとしてアカウントを作成
 </div>
 <br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
-      <%= f.label :名前 %><br />
-      <%= f.text_field :name, autofocus: true %>
+    <br />
+      <%= f.text_field :name, autofocus: true,:placeholder => "名前" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "メールアドレス" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> words以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワードの確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -33,5 +33,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+<div class="field-twitter", style="color:white">
+<%= link_to 'twitterでログイン', '/auth/twitter', :id => "twitter" %>
+</div>
 <%= render "users/shared/links" %>

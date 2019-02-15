@@ -43,7 +43,7 @@
 
     <% events.each do |e| %>
      <div>
-      <%= link_to e.name,event_path(e) %>
+      <%= link_to e.name,event_path(e), :style=>"color:#4B4949;font-size:medium;" %>
      </div>
    <% end %>
  <% end %>

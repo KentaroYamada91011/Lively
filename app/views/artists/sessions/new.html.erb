@@ -1,20 +1,23 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="box11">
+  <div class="field-text" ,="," style="font-weight:bold;">
+    バンドとしてログインする
+  </div>
+  <br>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field-text">
+    <br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "メールアドレス" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="field-text">
+    <br/>
+    <%= f.password_field :password, autocomplete: "current-password",:placeholder => "パスワード" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="field-text">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :パスワードを覚える %>
     </div>
   <% end -%>
 
@@ -22,7 +25,8 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<div class="field-twitter", style="color:white">
+<%= link_to 'twitterでログイン', '/auth/twitter', :id => "twitter" %>
+</div>
 <%= render "artists/shared/links" %>
-
-<%= link_to 'twitterログイン', '/auth/another/twitter' %>
+</div>

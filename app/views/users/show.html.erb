@@ -14,64 +14,18 @@
   </header>
   <main>
   <div id="root" class="container box-center">
-
-    <!--
-      <% @follow.each do |t|  %>
-        <div>
-          <% t.artist_id %>
-          <%= Artist.find(t.artist_id).name %>
-          <%= Event.where(artist_id: t.artist_id).count %>
-          <br>
-          <% @event = Event.where(artist_id: t.artist_id) %>
-            <% @event.each do |e| %>
-              <%= e.start_time %>
-              <br>
-            <% end %>
-        </div>
-        <br>
-      <% end %> -->
             <div class="card border-light" style="background-color: #ffffff; border-color: #333;"">
             <%= month_calendar events: @events.each do |date,events| %>
               <%= date.day %>
 
               <% events.each do |e| %>
                <div>
-                <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;" %>
+                <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:medium;" %>
                </div>
              <% end %>
            <% end %>
            </div>
 
-   <!-- <nav>
-     <ul class="menu-buttom">
-       <li>
-        <%= link_to  events_path, class: "footer" do %>
-          <i class="fas fa-plus-circle"></i>
-          <h6>ライブ検索</h6>
-        <% end %>
-       </li>
-       <li>
-         <%= link_to  artists_path, class: "footer" do %>
-           <i class="fas fa-search"></i>
-           <h6>バンド検索</h6>
-         <% end %>
-       </li>
-       <li>
-         <% if user_signed_in? %>
-           <%= link_to  user_path(current_user.id), class: "footer" do %>
-             <i class="fas fa-user"></i>
-             <h6>マイページ</h6>
-           <% end %>
-         <% elsif artist_signed_in? %>
-           <%= link_to  artist_path(current_artist.id), class: "footer" do %>
-             <i class="fas fa-user"></i>
-             <h6>マイページ</h6>
-           <% end %>
-         <% else %>
 
-         <% end %>
-       </li>
-     </ul>
-   </nav> -->
 </body>
 </main>

@@ -1,18 +1,17 @@
 
 <div class="box11">
-<div class="field-text">
-  ユーザーとしてログインする
+<div class="field-text", style="font-weight:bold;">
+  ユーザーとしてログイン
 </div>
 <br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field-text">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "メールアドレス" %>
   </div>
+  <br>
 
   <div class="field-text">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password",:placeholder => "パスワード" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -26,9 +25,10 @@
     <%= f.submit "ログイン",:class => "tn btn-default btn-sm" %>
   </div>
 <% end %>
-
+<div class="field-twitter", style="color:white">
+<%= link_to 'twitterでログイン', '/auth/twitter', :id => "twitter" %>
+</div>
 <%= render "users/shared/links" %>
 
-<%= link_to 'twitterログイン', '/auth/twitter' %>
 
 </div>
