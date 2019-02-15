@@ -31,12 +31,12 @@
                           <%= p %w(日 月 火 水 木 金 土)[@event.start_time.wday] %>
                         <% end %>
                         </p>
-                        <p class="p-detail__open"><% if @event.open_time == nil %><% else %>OPEN：<%= @event.open_time.strftime("%H:%M") %><% end %></p>
+                        <p class="p-detail__open",style="font-size:small;"><% if @event.open_time == nil %><% else %>OPEN：<%= @event.open_time.strftime("%H:%M") %><% end %></p>
                       </div>
                     </div>
                     <div class="p-detail__title-box-inner">
                       <h1 class="p-detail__title-box-inner"><%= @event.name %><% if current_artist == @event.artist %><object><a href="/events/<%= @event.id %>/edit"><i class="fas fa-edit"></i></object><% end %></h1>
-                      <p class="c-article__item-body-lineup"><%= link_to artist_path(@event.artist.id), target: "_blank" do %><%= @event.artist.name %><% end %></p>
+                      <p class="c-article__item-body-lineup"><%= link_to artist_path(@event.artist.id), target: "a" do %><%= @event.artist.name %><% end %></p>
                       <p class="c-article__item-body-lineup"><i class="fas fa-map-marker-alt"></i><%= @event.address %></p>
                     </div>
                   </div>
