@@ -10,19 +10,19 @@ class Artist < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def self.find_for_oauth2(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+    artist = Artist.where(uid: auth.uid, provider: auth.provider).first
 
-    unless user
-      user = User.create(
+    unless artist
+      artist = Artist.create(
         uid:      auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        email:    Artist.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
         name:     auth.info.nickname,
         image:    auth.info.image
       )
     end
-    return user
+    return artist
   end
 
   def sign_in_and_redirect(resource_or_scope, *args)
