@@ -37,7 +37,7 @@
     <div id="change_name"><%= link_to edit_artist_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
       <%= link_to new_event_path do %>
         <p class="c-article__item-body-week" id="follow">新しいイベントを投稿する</p>
-      <% end %> 
+      <% end %>
       <% else %>
     <% end %>
   </header>
@@ -51,7 +51,7 @@
 
     <% events.each do |e| %>
      <div>
-      <%= link_to e.name,event_path(e), :style=>"color:#4B4949;font-size:small;" %>
+      <%= link_to e.name,event_path(e), :style=>"color:#4B4949;font-size:x-small;" %>
      </div>
    <% end %>
  <% end %>
