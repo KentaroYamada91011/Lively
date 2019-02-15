@@ -16,11 +16,11 @@
             <div class="menu-main">
             <% if user_signed_in? %>
               <%= link_to  user_path(current_user.id) do %>
-                <h6>マイページ</h6>
+                <h6>マイカレンダー</h6>
               <% end %>
             <% elsif artist_signed_in? %>
               <%= link_to  artist_path(current_artist.id) do %>
-                <h6>マイページ</h6>
+                <h6>マイカレンダー</h6>
               <% end %>
             <% else %>
 
