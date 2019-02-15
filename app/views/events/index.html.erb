@@ -33,7 +33,11 @@
                 <div class="c-article">
                   <article class="c-article__item">
                     <figure class="c-article__item-image">
-                      <%= image_tag t.image.to_s,:class => "event__figure" %>
+                      <% if t.image.to_s == nil %>
+                        <img src="images/no_image.jpg" alt=" " class="aligncenter">
+                      <% else %>
+                        <%= image_tag t.image.to_s,:class => "event__figure" %>
+                      <% end %>
                     </figure>
                     <div class="c-article__item-body">
                       <div class="c-article__item-body-date-box">

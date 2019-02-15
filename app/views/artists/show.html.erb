@@ -24,6 +24,9 @@
       <% end %>
       <%= @follows_count %>
     <% else %>
+    <%= link_to artist_follows_path(artist_id: @artist),method: :post do %>
+        <p class="c-article__item-body-week" id="follow">フォローする</p>
+      <% end %>
     <% end %>
     <% if artist_signed_in? %>
       <%= link_to new_event_path do %>
@@ -43,9 +46,11 @@
 
     <% events.each do |e| %>
      <div>
-      <%= link_to e.name,event_path(e), :style=>"color:#4B4949;font-size:medium;" %>
+      <%= link_to e.name,event_path(e), :style=>"color:#4B4949;font-size:small;" %>
      </div>
    <% end %>
  <% end %>
+ <a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a><br>
+ <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
  </div>
-<a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a><br>

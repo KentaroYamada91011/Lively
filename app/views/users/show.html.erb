@@ -6,26 +6,27 @@
 </head>
 <body>
   <header>
-    <%= image_tag @user.image.to_s, :id => 'profile' %>
-    <div id='user_name', style="font-size:medium;"><%= current_user.name %></div>
-    <div id="change_name", style="font-size:medium;"><%= link_to edit_user_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
-    <div class="l-gnav-toggle">
-    </div>
+
+    <% if @user.image.to_s == nil %>
+      <img src="images/no_image.jpg" alt=" " class="aligncenter">
+    <% else %>
+      <%= image_tag @user.image.to_s, :id => "profile",:onerror => "this.src='/assets/no_image.jpg'"%>
+    <% end %>
+    <div id='user_name', style="font-size:medium;"><%= @user.name %></div>
+    <%= link_to edit_user_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %>
   </header>
-  <main>
-  <div id="root" class="container box-center">
-            <div class="card border-light" style="background-color: #ffffff; border-color: #333;"">
-            <%= month_calendar events: @events.each do |date,events| %>
-              <%= date.day %>
-
-              <% events.each do |e| %>
-               <div>
-                <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:medium;" %>
-               </div>
-             <% end %>
-           <% end %>
-           </div>
 
 
-</body>
-</main>
+  <div class="card border-light" style="background-color: #ffffff; border-color: #333;"">
+    <%= month_calendar events: @events.each do |date,events| %>
+      <%= date.day %>
+
+      <% events.each do |e| %>
+       <div>
+        <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:small;" %>
+       </div>
+     <% end %>
+   <% end %>
+  </div>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true">Tweet</a><br>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

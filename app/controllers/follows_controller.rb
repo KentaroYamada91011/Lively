@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+  before_action :authenticate_user!
   def create
       #いいねを探して増やす
       @follow = Follow.create(artist_id: params[:artist_id],user_id: current_user.id)

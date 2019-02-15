@@ -1,26 +1,28 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="box11">
+<div class="field-text", style="font-weight:bold;">
+  ユーザーの情報を変更
+</div>
 <%= form_for @user do |f| %>
- <div class="field">
-
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field :name ,size: 140 %>
-    <br>
-    <%= f.label :image %>
-    <br>
-    <%= f.file_field :image ,size: 140 %>
-
-
+<div class="field">
+   <br>
+   <%= f.text_field :name ,size: 140,:placeholder => "名前" %>
+   <br>
+   <br>
+   <%= f.label :画像 %>
+   <br>
+   <%= f.file_field :image ,size: 140,:placeholder => "画像" %>
+   <br>
+   <br>
  </div>
- <div class="action">
+<div class="action">
    <%= f.submit %>
  </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= button_to "Cancel my account", user_registration_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete %></p>
-
-<h1>a</h1>
-
 <%= link_to "Back", :back %>
+<br>
+<br>
+ <%= button_to "アカウントを削除する", user_registration_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete %>
+
+
+
+</div>

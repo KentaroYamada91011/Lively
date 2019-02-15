@@ -16,7 +16,11 @@
               <div class="p-detail__body">
                 <div class="p-detail__body-inner  js-matchHeight">
                   <figure class="p-detail__image">
-                    <%= image_tag @event.image.to_s %>
+                    <% if @event.image.to_s == nil %>
+                      <img src="images/no_image.jpg" alt=" " class="aligncenter">
+                    <% else %>
+                      <%= image_tag @event.image.to_s %>
+                    <% end %>
                   </figure>
                   <div class="p-detail__title-box">
                     <div class="p-detail__date-box is-sp">
