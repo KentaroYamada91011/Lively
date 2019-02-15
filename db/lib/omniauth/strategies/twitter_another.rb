@@ -1,6 +1,6 @@
 module OmniAuth
   module Strategies
-    class FacebookAnother < OmniAuth::Strategies::Facebook
+    class TwitterAnother < OmniAuth::Strategies::Twitter
       option :name, 'twitter_another'
     end
   end
