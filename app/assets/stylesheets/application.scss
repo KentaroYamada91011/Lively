@@ -27,6 +27,14 @@
     url("//db.onlinewebfonts.com/t/c86abc4b774e61b89f5489f0703aafac.ttf") format("truetype"),
     url("//db.onlinewebfonts.com/t/c86abc4b774e61b89f5489f0703aafac.svg#Trade Gothic") format("svg");
 }
+.box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
 body{
   width: 100%;
   // background-size:contain;
@@ -63,6 +71,11 @@ img.event__figure{
 
 form{
   text-align: center;
+}
+div.field-text{
+  text-align: center;
+  color: #4B4949;
+  font-family: 'Trade Gothic LT W00 Bold Obl';
 }
 
 

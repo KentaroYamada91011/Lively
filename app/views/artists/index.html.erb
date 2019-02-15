@@ -11,9 +11,10 @@
         <div id="content" class="p-top">
 
           <div class="c-section p-top__article">
-            <h4 style="text-align: center;">バンド名から探す</h4>
+            <br>
+            <!-- <h4 style="text-align: center;">バンド名から探す</h4> -->
             <%= form_tag({controller:"artists",action:"index"},{ :method => :get}) do %>
-              <%= text_field_tag :search, nil %>
+              <%= text_field_tag :search, nil,:placeholder => "バンド名から検索" %>
               <%= submit_tag ('検索'),:class => "search",:name => nil %>
             <% end %>
             <div class="c-section__inner">
