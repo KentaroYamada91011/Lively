@@ -33,7 +33,7 @@
     <% end %>
 
 
-    <% if artist_signed_in? %>
+    <% if current_user.id == params[:id]%>
     <div id="change_name"><%= link_to edit_artist_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %></div>
       <%= link_to new_event_path do %>
         <p class="c-article__item-body-week" id="follow">新しいイベントを投稿する</p>
