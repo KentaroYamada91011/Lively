@@ -27,5 +27,5 @@
        </div>
      <% end %>
    <% end %>
-   <a class="twitter" href="http://twitter.com/share?text=<% if @artist == nil %>最新のライブ情報<% else %><%= @artist.name %>の最新のライブ情報<% end %>&hashtags=Lively&url=<%= request.url %>" onClick="window.open(encodeURI(decodeURI(this.href),_self), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">Tweet</a>
+   <a class="twitter" href="http://twitter.com/share?text=<% if @artist == nil %>最新ライブ情報<% else %><%= @artist.name %>の最新のライブ情報<% end %>&hashtags=Lively&url=<%= request.url %>" onClick="window.open(encodeURI(decodeURI(this.href),_self), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">Tweet</a>
   </div>
