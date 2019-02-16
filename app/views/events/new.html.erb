@@ -36,11 +36,11 @@
    <br>
    <%= f.label :"メモ" %>
    <br>
-   <%= f.text_field :memo ,size: 30,:placeholder => "対バン情報など" %>
+   <%= f.text_field :memo ,size: 20,:placeholder => "対バン情報など" %>
    <br>
    <%= f.label :画像 %>
    <br>
-   <%= f.file_field :image %>
+   <%= file_field :image, f %>
  </div>
 <div class="action">
    <%= f.submit %>
