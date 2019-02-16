@@ -1,10 +1,9 @@
 class EventsController < ApplicationController
   def index
-    PER = 10
     if params[:date] == nil
-      @event = Event.page(params[:page]).per(PER)
+      @event = Event.all
     elsif params[:date] == ""
-      @event = Event.page(params[:page]).per(PER)
+      @event = Event.all
     else
       date = params[:date].to_date
       @event = Event.where(start_time: date.beginning_of_day .. date.end_of_day)
