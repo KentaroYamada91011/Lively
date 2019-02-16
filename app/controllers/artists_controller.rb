@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   def index
+    
     if params[:search] == nil
       @artists = Artist.all
     elsif params[:search] == ""
