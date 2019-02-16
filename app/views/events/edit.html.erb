@@ -12,16 +12,17 @@
        <br>
        <br>
        <%= f.label :"日付(必須)" %>
-       <%= f.date_field :start_time,:size => "auto" %>
+       <%= f.date_field :start_time ,class: "field-tag",:placeholder => "2000/1/1" %>
 
        <br>
        <%= f.label :OPEN %>
-       <%= f.time_field :open_time,:size => "auto"  %>
+       <%= f.time_field :open_time ,class: "field-tag" ,:placeholder => "18:00" %>
        <br>
        <%= f.label :"START" %>
-       <%= f.time_field :start_time_,:size => "auto"  %>
+       <%= f.time_field :start_time_ ,class: "field-tag",:placeholder => "18:30"  %>
        <br>
        <%= f.label :"ADV(¥)" %>
+       <br>
        <br>
        <%= f.text_field :price ,size: 20,:placeholder => "例) 2000" %>
 
@@ -41,10 +42,7 @@
        <br>
        <%= f.file_field :image ,class: "field-tag" %>
      </div>
-    <div class="action">
-
-       <%= f.submit %>
- </div>
+    <div class="action"> </div>
 <% end %>
 <%= link_to  event_path(@event), :method => "delete", data:{:confirm => '本当に削除しますか？' } do %>
   <div class="field-text">

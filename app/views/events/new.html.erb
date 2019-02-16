@@ -12,23 +12,23 @@
    <br>
    <br>
    <%= f.label :"日付(必須)" %>
-   <%= f.date_field :start_time ,class: "field-tag" %>
+   <%= f.date_field :start_time ,class: "field-tag",:placeholder => "2000/1/1" %>
 
    <br>
    <%= f.label :OPEN %>
-   <%= f.time_field :open_time ,class: "field-tag"  %>
+   <%= f.time_field :open_time ,class: "field-tag" ,:placeholder => "18:00" %>
    <br>
    <%= f.label :"START" %>
-   <%= f.time_field :start_time_ ,class: "field-tag"  %>
+   <%= f.time_field :start_time_ ,class: "field-tag",:placeholder => "18:30"  %>
    <br>
-   <%= f.label :ADV（円） %>
+   <%= f.label :"ADV(¥)" %>
    <br>
    <br>
    <%= f.text_field :price ,size: 20,:placeholder => "例) 2000" %>
 
    <%= f.check_box :adv_drink ,size: 20 %><%= f.label :"+1 drink" %>
    <br>
-   <%= f.label :"DOOR（円）" %>
+   <%= f.label :"DOOR(¥)" %>
    <br>
    <%= f.text_field :door_price ,size: 20,:placeholder => "例) 2500" %>
 
