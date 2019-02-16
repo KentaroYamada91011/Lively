@@ -17,13 +17,10 @@
         <div id="content" class="p-top">
 
           <div class="c-section p-top__article">
-
-
-
             <!-- <h4 style="text-align: center;">日程からイベントを検索</h4> -->
             <br>
             <%= form_tag({controller:"events",action:"index"},{ :method => :get}) do %>
-              <%= date_field_tag :date, nil %>
+              <%= date_field_tag :date ,class: "field-tag" %>
               <%= submit_tag '日程からライブを探す',:name => nil,:class => "btn-sm" %>
             <% end %>
             <div class="c-section__inner">
