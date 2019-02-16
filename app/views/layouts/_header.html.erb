@@ -13,7 +13,7 @@
         </div>
         <nav class="drawer-nav" role="navigation">
           <ul class="drawer-menu drawer-menu--right">
-            <div class="menu-main">
+            <div class="menu-main" style="postion:relative;">
             <% if user_signed_in? %>
               <%= link_to  user_path(current_user.id) do %>
                 <h6>マイカレンダー</h6>
