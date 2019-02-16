@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
+  PER = 10
   def index
     if params[:date] == nil
-      @event = Event.all
+      @event = Event.page(params[:page]).per(PER)
     elsif params[:date] == ""
-      @event = Event.all
+      @event = Event.page(params[:page]).per(PER)
     else
       date = params[:date].to_date
-      @event = Event.where(start_time: date.beginning_of_day .. date.end_of_day)
+      @event = Event.where(start_time: date.beginning_of_day .. date.end_of_day).page(params[:page]).per(PER)
     end
     unless current_artist == nil
       @artist = Artist.find(current_artist.id)

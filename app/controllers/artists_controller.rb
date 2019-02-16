@@ -1,10 +1,10 @@
 class ArtistsController < ApplicationController
+  PER = 1
   def index
-    
     if params[:search] == nil
-      @artists = Artist.all
+      @artists = Artist.page(params[:page]).per(PER)
     elsif params[:search] == ""
-      @artists = Artist.all
+      @artists = Artist.page(params[:page]).per(PER)
     else
       #部分検索
       @artists = Artist.where("name LIKE ? ",'%' + params[:search] + '%')
