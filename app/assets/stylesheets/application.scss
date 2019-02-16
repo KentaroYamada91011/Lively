@@ -27,6 +27,21 @@
     url("//db.onlinewebfonts.com/t/c86abc4b774e61b89f5489f0703aafac.ttf") format("truetype"),
     url("//db.onlinewebfonts.com/t/c86abc4b774e61b89f5489f0703aafac.svg#Trade Gothic") format("svg");
 }
+.twitter {
+  height: auto;
+  width: fit-content;
+  background-color: #55acee;
+  border: 2px solid #55acee;
+  border-radius: 20px;
+  color: #fff;
+  padding:4px 32px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.twitter:hover {
+  background-color: #fff;
+  color: #55acee;
+}
 .field-tag{
   width:90%;
   height: 42px;
