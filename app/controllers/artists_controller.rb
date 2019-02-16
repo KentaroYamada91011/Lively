@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  PER = 1
+  PER = 10
   def index
     if params[:search] == nil
       @artists = Artist.page(params[:page]).per(PER)
