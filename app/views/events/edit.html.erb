@@ -41,7 +41,9 @@
        <br>
        <%= f.file_field :image ,class: "field-tag" %>
      </div>
-    <div class="action"> </div>
+    <div class="action">
+      <%= f.submit %>
+    </div>
 <% end %>
 <%= link_to  event_path(@event), :method => "delete", data:{:confirm => '本当に削除しますか？' } do %>
   <div class="field-text">
