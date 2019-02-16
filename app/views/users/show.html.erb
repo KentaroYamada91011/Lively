@@ -23,7 +23,7 @@
 
       <% events.each do |e| %>
        <div>
-        <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:small;" %>
+        <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:x-small;width:100%;" %>
        </div>
      <% end %>
    <% end %>
