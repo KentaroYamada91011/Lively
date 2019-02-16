@@ -18,7 +18,7 @@ class Artist < ApplicationRecord
         provider: auth.provider,
         email:    Artist.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
-        name:     auth.info.nickname,
+        name:     auth.info.name,
         image:    auth.info.image
       )
     end
