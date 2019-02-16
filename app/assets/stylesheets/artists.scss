@@ -42,8 +42,8 @@ input[type="button"]{
   padding: 0.3em 1em;
   text-decoration: none;
   color: #FFF;
-  background:#2E2E2E;
-  border: solid 2px #2E2E2E;
+  background:#585858;
+  border: solid 2px #585858;
   border-radius: 3px;
   transition: .4s;
 }
@@ -53,15 +53,19 @@ input[type="button"]:active{
 }
 input[type="submit"] {
   // display: block;
+  font-size: 0.875rem;
+line-height: 1.5;
   padding: 0.3em 1em;
   text-decoration: none;
   color: #FFF;
-  background:#2E2E2E;
-  border: solid 2px #2E2E2E;
+  background:#585858;
+  border: solid 2px #585858;
   border-radius: 3px;
   transition: .4s;
 }
 input[type="submit"]:active{
+  font-size: 0.875rem;
+line-height: 1.5;
   background: #FFF;
   color: black;
 }
