@@ -20,7 +20,7 @@
             <div class="c-section__inner">
               <div class="c-article__container">
                 <% @artists.each do |a| %>
-                <%= link_to  artist_path(a.id), target: "a" do %>
+                <%= link_to  artist_path(a.id), target: "_self" do %>
                 <div class="c-article">
                   <article class="c-article__item">
                     <figure class="c-article__item-image">
