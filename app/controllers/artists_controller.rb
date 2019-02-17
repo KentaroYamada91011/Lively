@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
       @artists = Artist.page(params[:page]).per(PER).order("id DESC")
     else
       #部分検索
-      @artists = Artist.where("name LIKE ? ",'%' + params[:search] + '%').order("id DESC")
+      @artists = Artist.where("name LIKE ? ",'%' + params[:search] + '%')
     end
   end
 

@@ -43,7 +43,10 @@
                 <% end %>
                 <% end %>
               </div>
-              <%= paginate @artists %>
+              <% if params[:search] == nil %>
+                <%= paginate @artists %>
+              <% else %>
+              <% end %>
             </div>
           </div>
         </div>
