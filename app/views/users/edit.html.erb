@@ -1,28 +1,23 @@
 <div class="box11">
-<div class="field-text", style="font-weight:bold;">
-  ユーザーの情報を変更
-</div>
-<%= form_for @user do |f| %>
-<div class="field">
-   <br>
-   <%= f.text_field :name ,size: 20,:placeholder => "名前" %>
-   <br>
-   <br>
-   <%= f.label :画像 %>
-   <br>
-   <%= f.file_field :image ,class: "field-tag" %>
-   <br>
-   <br>
- </div>
-<div class="action">
-   <%= f.submit %>
- </div>
-<% end %>
-<%= link_to "Back", :back %>
-<br>
-<br>
- <%= button_to "アカウントを削除する", user_registration_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete %>
-
-
-
+  <div class="field-text", style="font-weight:bold;">ユーザーの情報を変更</div>
+  <%= form_for @user do |f| %>
+    <div class="field">
+      <br>
+      <%= f.text_field :name ,size: 20,:placeholder => "名前" %>
+      <br>
+      <br>
+      <%= f.label :画像 %>
+      <br>
+      <%= f.file_field :image ,class: "field-tag" %>
+      <br>
+      <br>
+    </div>
+    <div class="action">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <%= link_to "Back", :back %>
+  <br>
+  <br>
+  <%= button_to "アカウントを削除する", user_registration_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete %>
 </div>

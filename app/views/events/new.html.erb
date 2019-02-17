@@ -1,48 +1,48 @@
 <div class="box11">
-<div class="field-text", style="font-weight:bold;">
-  ライブを投稿
-</div>
-<%= form_for(@event, :url => { controller:'events', action:'create'})do |f| %>
-<div class="field" >
-  <br>
-  <%= f.text_field :name ,size: 20,:placeholder => "イベント名(必須)" %>
-   <br>
-   <br>
-   <%= f.text_field :address ,size: 20,:placeholder => "場所" %>
-   <br>
-   <br>
-   <%= f.label :"日付(必須)" %>
-   <%= f.date_field :start_time ,class: "field-tag",:placeholder => "2000/1/1" %>
+  <div class="field-text", style="font-weight:bold;">
+    ライブを投稿
+  </div>
+  <%= form_for(@event, :url => { controller:'events', action:'create'})do |f| %>
+  <div class="field" >
+    <br>
+    <%= f.text_field :name ,size: 20,:placeholder => "イベント名(必須)" %>
+     <br>
+     <br>
+     <%= f.text_field :address ,size: 20,:placeholder => "場所" %>
+     <br>
+     <br>
+     <%= f.label :"日付(必須)" %>
+     <%= f.date_field :start_time ,class: "field-tag",:placeholder => "2000/1/1" %>
 
-   <br>
-   <%= f.label :OPEN %>
-   <%= f.time_field :open_time ,class: "field-tag" ,:placeholder => "18:00" %>
-   <br>
-   <%= f.label :"START" %>
-   <%= f.time_field :start_time_ ,class: "field-tag",:placeholder => "18:30"  %>
-   <br>
-   <%= f.label :"ADV(¥)" %>
-   <br>
-   <%= f.text_field :price ,size: 20,:placeholder => "例) 2000" %>
+     <br>
+     <%= f.label :OPEN %>
+     <%= f.time_field :open_time ,class: "field-tag" ,:placeholder => "18:00" %>
+     <br>
+     <%= f.label :"START" %>
+     <%= f.time_field :start_time_ ,class: "field-tag",:placeholder => "18:30"  %>
+     <br>
+     <%= f.label :"ADV(¥)" %>
+     <br>
+     <%= f.text_field :price ,size: 20,:placeholder => "例) 2000" %>
 
-   <%= f.check_box :adv_drink ,size: 20 %><%= f.label :"+1 drink" %>
-   <br>
-   <%= f.label :"DOOR(¥)" %>
-   <br>
-   <%= f.text_field :door_price ,size: 20,:placeholder => "例) 2500" %>
+     <%= f.check_box :adv_drink ,size: 20 %><%= f.label :"+1 drink" %>
+     <br>
+     <%= f.label :"DOOR(¥)" %>
+     <br>
+     <%= f.text_field :door_price ,size: 20,:placeholder => "例) 2500" %>
 
-   <%= f.check_box :door_drink ,size: 140 %><%= f.label :"+1 drink" %>
-   <br>
-   <%= f.label :"メモ" %>
-   <br>
-   <%= f.text_field :memo ,size: 20,:placeholder => "対バン情報など" %>
-   <br>
-   <%= f.label :画像 %>
-   <br>
-   <%= f.file_field :image ,class: "field-tag" %>
- </div>
-<div class="action">
-   <%= f.submit %>
- </div>
-<% end %>
+     <%= f.check_box :door_drink ,size: 140 %><%= f.label :"+1 drink" %>
+     <br>
+     <%= f.label :"メモ" %>
+     <br>
+     <%= f.text_field :memo ,size: 20,:placeholder => "対バン情報など" %>
+     <br>
+     <%= f.label :画像 %>
+     <br>
+     <%= f.file_field :image ,class: "field-tag" %>
+   </div>
+  <div class="action">
+     <%= f.submit %>
+   </div>
+  <% end %>
 </div>

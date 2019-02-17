@@ -6,7 +6,6 @@
 </head>
 <body>
   <header>
-
     <% if @user.image.to_s == nil %>
       <img src="images/no_image.jpg" alt=" " class="aligncenter">
     <% else %>
@@ -15,17 +14,15 @@
     <div id='user_name', style="font-size:medium;"><%= @user.name %></div>
     <%= link_to edit_user_path(params[:id]) do %><i class="fas fa-cog fa-2x"></i><% end %>
   </header>
-
-
   <div class="card border-light" style="background-color: #ffffff; border-color: #333;"">
     <%= month_calendar events: @events.each do |date,events| %>
       <%= date.day %>
-
       <% events.each do |e| %>
-       <div>
+      <div>
         <%= link_to Artist.find(e.artist_id).name,event_path(e), :style=>"color:#4B4949;font-size:x-small;width:100%;" %>
-       </div>
-     <% end %>
-   <% end %>
-   <a class="twitter" href="http://twitter.com/share?text=<% if @artist == nil %>最新ライブ情報<% else %><%= @artist.name %>の最新のライブ情報<% end %>&hashtags=Lively&url=<%= request.url %>" onClick="window.open(encodeURI(decodeURI(this.href),_self), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">Tweet</a>
+      </div>
+      <% end %>
+    <% end %>
+    <a class="twitter" href="http://twitter.com/share?text=<% if @artist == nil %>最新ライブ情報<% else %><%= @artist.name %>の最新のライブ情報<% end %>&hashtags=Lively&url=<%= request.url %>" onClick="window.open(encodeURI(decodeURI(this.href),_self), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;">Tweet</a>
   </div>
+</body>
