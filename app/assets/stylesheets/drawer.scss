@@ -1,0 +1,17 @@
+.menu-main {
+  @media screen and (min-width: 1000px) {
+    display: flex;
+    a {
+      margin-right: 8px;
+      margin-top: 12px;
+
+    }
+    .menu__line {
+      display: none;
+    }
+  }
+}
+
+.drawer-nav {
+  display: inline;
+}

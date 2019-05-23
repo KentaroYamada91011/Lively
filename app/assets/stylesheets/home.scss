@@ -1,0 +1,16 @@
+.content {
+  @media screen and (min-width: 1000px) {
+    margin: 20px 200px;
+  }
+}
+
+.innerS {
+    font-size:x-small;
+    color: #5d627b;
+    font-weight:500;
+    display:block;
+    margin:auto;
+    @media screen and (min-width: 1000px) {
+      font-size: 20px;
+    }
+}

@@ -28,6 +28,15 @@
     url("//db.onlinewebfonts.com/t/c86abc4b774e61b89f5489f0703aafac.svg#Trade Gothic") format("svg");
 }
 
+font {
+  position: relative;
+  top:8px;
+  @media screen and (min-width: 1000px) {
+    position: relative;
+    top:28px;
+  }
+}
+
 .twitter {
   height: auto;
   width: max-content;

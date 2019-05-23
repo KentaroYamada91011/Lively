@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # sessions: 'artists/sessions',
     # passwords: 'artists/passwords'
   }
-  get '/auth/another/twitter/callback' => 'anothers#twitter'
+
   devise_for :users, controllers: {
     # registrations: 'users/registrations',
     # sessions: 'users/sessions',
