@@ -249,11 +249,8 @@ button#menu{
   border-left: none;
   border: 1px solid #dadada;
   border-bottom: none;
-  // display: flex;
   flex-wrap: wrap;
   background-color:  #FFFFFF
-
-
 }
 .c-article{
     width: 100%;
@@ -261,8 +258,21 @@ button#menu{
     border-left: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
 }
+
 .c-article__item-image {
     overflow: hidden;
+}
+@media screen and (min-width: 1000px) {
+  .artist__list {
+    display: flex;
+  }
+  .c-article__card{
+    width: 50%;
+    height: fit-content;
+  }
+  .c-article__item-image {
+    height: 220px;
+  }
 }
 figure {
     display: block;
