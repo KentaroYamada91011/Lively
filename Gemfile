@@ -80,5 +80,5 @@ gem 'pg'
 gem 'openssl'
 gem 'omniauth'
 # gem 'omniauth-oauth2', '~> 1.3.1'
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 gem "kaminari-bootstrap"
